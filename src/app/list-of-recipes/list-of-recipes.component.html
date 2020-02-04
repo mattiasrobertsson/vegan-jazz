@@ -1,0 +1,35 @@
+<div>
+  <app-desktop-menu *ngIf="innerWidth > 767"></app-desktop-menu>
+  <app-mobile-menu *ngIf="innerWidth < 768"></app-mobile-menu>
+  <!--<h1 style="margin-top: 3rem;margin-left: 0.7rem;">Grytor & Soppa</h1>
+  <p style="margin-left: 0.7rem; font-size: 15px;">
+    Här finns dyng-jävla-goda grytor och soppor.
+  </p>-->
+  <div class="grid">
+    <div class="clickable-area" *ngFor="let recipe of recipes">
+      <a routerLink="/recipe/{{ recipe.id }}">
+        <div class="nested">
+          <div>
+            <img
+              src="{{ recipe.image }}"
+              alt="Vgn Jazz Logo"
+              height="220"
+              width="160"
+            />
+          </div>
+        </div>
+        <span class="recipe-name">{{ recipe.name }}</span>
+        <span class="prep-time">{{ recipe.cookTime }} min</span>
+      </a>
+    </div>
+  </div>
+  <!--
+    <button type="button" (click)="sortByName()">
+      Sortera från A till Ö
+    </button>
+
+    <button type="button" (click)="sortByCookTime()">
+      Sortera på tillagningstid
+    </button>
+  </div>-->
+</div>

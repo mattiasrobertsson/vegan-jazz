@@ -1,0 +1,55 @@
+<app-desktop-menu></app-desktop-menu>
+
+<h1 style="margin-top: 2.5rem;">{{ recipe?.name }}</h1>
+<div style="border: 2px solid #f7f7f7; margin-top: -0.75rem;"></div>
+<h5
+  style="float:right; text-transform: uppercase; font-family: 'Open Sans', sans-serif; font-weight: bold; margin-top: 0.5rem;"
+>
+  {{ recipe?.cookTime }} minuter | {{ recipe?.servings }} portioner
+</h5>
+<div class="main-content-grid">
+  <div>
+    <img
+      src="{{ recipe?.image }}"
+      alt="Vgn Jazz Logo"
+      height="600"
+      width="450"
+    />
+  </div>
+  <div>
+    <h2>Gör så här</h2>
+    <ul class="how-to">
+      <li *ngFor="let ht of recipe?.howTo">{{ ht.description }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="content-grid">
+  <div class="nested">
+    <h4>Ingredienser ({{ basic.length }})</h4>
+    <ul class="ingredient">
+      <li *ngFor="let i of basic">
+        {{ i.ingredient }}
+      </li>
+    </ul>
+  </div>
+  <div class="nested">
+    <h4>Kryddor</h4>
+    <ul class="ingredient">
+      <li *ngFor="let i of spice">
+        {{ i.ingredient }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="nested">
+    <h4>Topping / Tillbehör</h4>
+    <ul class="ingredient">
+      <li *ngFor="let i of topping">
+        {{ i.ingredient }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--COOKTIME & SERVINGS-->
