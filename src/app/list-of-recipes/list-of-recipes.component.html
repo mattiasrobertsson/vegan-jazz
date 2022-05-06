@@ -1,0 +1,23 @@
+<div>
+  <app-desktop-menu *ngIf="innerWidth > 767"></app-desktop-menu>
+  <app-mobile-menu *ngIf="innerWidth < 768"></app-mobile-menu>
+
+  <div class="grid">
+    <!--GÖR EN SELECT MED SORTERA PÅ: TILLAGNINGSTID || BOKSTAVSORDNING-->
+    <div class="clickable-area" *ngFor="let recipe of recipes$ | async">
+      <a routerLink="{{ recipe.id }}">
+        <div class="nested">
+          <div>
+            <img
+              class="thumbnail-image"
+              src="{{ recipe.image }}"
+              alt="Vgn Jazz Logo"
+            />
+          </div>
+        </div>
+        <span class="recipe-name">{{ recipe.name }}</span>
+        <span class="prep-time">{{ recipe.cookTime }} min</span>
+      </a>
+    </div>
+  </div>
+</div>

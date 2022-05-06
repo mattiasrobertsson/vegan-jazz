@@ -1,0 +1,40 @@
+.desktop-menu {
+  text-align: center;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
+  padding-top: 4px;
+  padding-bottom: 3px;
+  clear: both;
+  color: #222;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.focus {
+  font-weight: 900;
+}
+
+li {
+  margin-right: 12px;
+  display: inline-block;
+  text-align: left;
+}
+
+li:after {
+  content: "\A";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: black;
+  margin-left: 10px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+
+li:last-child:after {
+  content: none;
+}

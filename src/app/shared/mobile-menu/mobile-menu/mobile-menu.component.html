@@ -1,0 +1,51 @@
+<div class="container" (click)="toggleMenu()">
+  <div class="bar1" [ngClass]="{ change: toggleMenuBar }"></div>
+  <div class="bar2" [ngClass]="{ change: toggleMenuBar }"></div>
+  <div class="bar3" [ngClass]="{ change: toggleMenuBar }"></div>
+</div>
+
+<ul class="mobile-menu" *ngIf="this.toggleMenuBar">
+  <li>
+    <a
+      routerLink="/street-food"
+      [ngClass]="{ focus: routerURL.includes('/street-food') }"
+      >Street Food</a
+    >
+  </li>
+  <li>
+    <a
+      routerLink="/stews-and-soups"
+      [ngClass]="{ focus: routerURL.includes('/stews-and-soups') }"
+      >Grytor & soppa</a
+    >
+  </li>
+  <li>
+    <a routerLink="/bowls" [ngClass]="{ focus: routerURL.includes('/bowls') }"
+      >Bowls</a
+    >
+  </li>
+  <li>
+    <a routerLink="/pasta" [ngClass]="{ focus: routerURL.includes('/pasta') }"
+      >Pasta</a
+    >
+  </li>
+  <li>
+    <a routerLink="/salad" [ngClass]="{ focus: routerURL.includes('/salad') }"
+      >Sallad</a
+    >
+  </li>
+  <li>
+    <a
+      routerLink="/breakfast"
+      [ngClass]="{ focus: routerURL.includes('/breakfast') }"
+      >Frukost</a
+    >
+  </li>
+  <li>
+    <a
+      routerLink="/snacks-and-drinks"
+      [ngClass]="{ focus: routerURL.includes('/snacks-and-drinks') }"
+      >Snacks & Dryck</a
+    >
+  </li>
+</ul>

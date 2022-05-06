@@ -1,0 +1,65 @@
+<app-desktop-menu *ngIf="innerWidth > 767"></app-desktop-menu>
+<app-mobile-menu *ngIf="innerWidth < 768"></app-mobile-menu>
+
+<div class="recipe" *ngIf="currentRecipe$ | async as currentRecipe">
+  <h1 class="header">
+    {{ currentRecipe.name }}
+  </h1>
+  <div class="border"></div>
+  <img *ngIf="currentRecipe.imageFlag" class="image-flag" src="{{ currentRecipe.imageFlag }}" alt="Flag" />
+
+  <h5>
+    {{ currentRecipe.cookTime }} minuter |
+    {{ currentRecipe.servings }} portioner
+  </h5>
+  <div class="main-content-grid">
+    <div>
+      <img class="image-recipe" src="{{ currentRecipe.image }}" alt="Vgn Jazz Logo" />
+    </div>
+    <div>
+      <!--THIS NEEDS TO BE MOVED BELOW-->
+      <h2>Gör så här</h2>
+      <ul class="how-to">
+        <li *ngFor="let howTo of currentRecipe.howTo">
+          {{ howTo.description }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="nested" *ngIf="basicIngredientExist">
+      <h4>Ingredienser</h4>
+      <ul class="ingredient">
+        <ng-container *ngFor="let basicIngredient of currentRecipe.ingredients">
+          <li *ngIf="basicIngredient.category === 'basic'">
+            {{ basicIngredient.ingredient }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="nested" *ngIf="spiceExist">
+      <h4>Kryddor</h4>
+      <ul class="ingredient">
+        <ng-container *ngFor="let spice of currentRecipe.ingredients">
+          <li *ngIf="spice.category === 'spice'">
+            {{ spice.ingredient }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <div class="nested" *ngIf="toppingExist">
+      <h4>Topping / Tillbehör</h4>
+      <ul class="ingredient">
+        <ng-container *ngFor="let topping of currentRecipe.ingredients">
+          <li *ngIf="topping.category === 'topping'">
+            {{ topping.ingredient }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!--COOKTIME & SERVINGS-->
